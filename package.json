@@ -1,6 +1,6 @@
 {
   "name": "mtg-quick-search",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "src/index.js",
   "targets": {
     "main": false
@@ -18,7 +18,8 @@
     "web-ext": "^6.6.0"
   },
   "scripts": {
-    "build": "bin/build.sh",
-    "build:signed": "bin/build.sh -s"
+    "build-chrome": "bin/build-core.sh && bin/build-chrome.sh",
+    "build-ff": "bin/build-core.sh && bin/build-ff.sh",
+    "build-ff-signed": "bin/build-core.sh && bin/build-ff-signed.sh"
   }
 }

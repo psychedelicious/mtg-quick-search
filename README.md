@@ -2,13 +2,37 @@
 
 Web extension to look up MTG cards. Compatible with FF and Chromium-based browsers (e.g. Chrome, Edge, Brave).
 
-Pending publication to the app store.
+Pending publication to the Firefox and Chrome extension stores.
 
 Please report any issues here.
 
 ## Installation
 
-Until the extension is on the FF and Chrome web stores, you can install it manually. Download the latest release (signed) and [install as described below](#signed).
+Until the extension is on the FF and Chrome web stores, you can install it manually.
+
+### Installation - Firefox
+
+**The signed build is pending Mozilla. You will need to install the unsigned version for now.**
+
+When using normal Firefox, you can only install it as a temporary add-on:
+
+- Go to `about:debugging`
+- Click `This Firefox`
+- Click `Load Temporary Add-on...`
+- Select the unsigned zip
+
+When using the Nightly/Developer Firefox builds, you can install it the same way you would install a signed version, after setting `xpinstall.signatures.required` to `false` in `about:config`.
+
+Once the signed version is available:
+
+- Download the latest signed release
+- Click Tools > Add-ons and Themes > gear icon > Install Add-on from File... > select the zip
+
+### Installation - Chrome
+
+- Download the latest release
+- Unzip it to its own folder
+- Click Chrome > Preferences > Extensions > enable Developer Mode > Load unpacked > select the unzipped folder
 
 ## Usage
 
@@ -30,23 +54,29 @@ You can open as many cards as you like, move them around, etc - try it out.
 
 ## Build from source
 
-### Unsigned
+### Build - Firefox
 
-`yarn run build` builds the extension, outputting a zip file in the `build/` folder.
+You can build an unsigned version for testing, or a signed (probably don't want to do this though).
 
-This unsigned build can be installed in a few ways:
+#### Build - Firefox - Unsigned
 
-- As a temporary extension on normal Firefox via `about:debugging`.
-- As a normal extension on Nightly/Developer Firefox builds, after setting `xpinstall.signatures.required` to `false` in `about:config`.
-- As a normal extension on Chrome, after enabling `Developer Mode` on `chrome://extensions/`. Open the `dist` folder instead of the built zip file.
+`yarn run build-ff` outputs an unsigned build to `build/firefox/`.
 
-### Signed
+#### Build - Firefox - Signed
 
-`yarn run build:signed` builds and signs the extension, outputting a zip file in the `build/` folder.
+You probably don't want to do this - just download the latest signed Firefox release if you want to run the extension on Firefox.
+
+You would do this if you wanted to publish a fork of this extension for some reason - I'd prefer a pull request, though.
 
 This requires Mozilla Add-on API credentials. The build script expects the JWT issuer to be in an environment variable `MOZ_API_ISSUER` and the JWT secret to be in `MOZ_API_SECRET`.
 
-The extension can be installed from file per usual.
+`yarn run build-ff-signed` builds and signs the extension with Mozilla, outputting a zip file to `build/firefox_signed`.
+
+The signed extension can be installed from file per usual.
+
+### Build - Chrome
+
+`yarn run build-chrome` outputs a build to `build/firefox/`.
 
 ## Technical
 
