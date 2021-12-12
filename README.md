@@ -1,8 +1,8 @@
 # MTG Quick Search
 
-Web extension to look up MTG cards. Compatible with FF and Chromium-based browsers (e.g. Chrome, Edge, Brave).
+Web extension to look up MTG cards. Compatible with FF and Chromium-based browsers (e.g. Chrome, Edge, Brave - but I've only tested on [Ungoogled Chromium](https://github.com/Eloston/ungoogled-chromium)).
 
-![example](https://github.com/psychedelicious/mtg-quick-search/blob/master/images/example.gif?raw=true)
+![demo](https://github.com/psychedelicious/mtg-quick-search/blob/master/images/example.gif?raw=true)
 
 Pending publication to the Firefox and Chrome extension stores.
 
@@ -21,18 +21,21 @@ Please report any issues here.
 
 ## Installation
 
-Until the extension is on the FF and Chrome web stores, you can install it manually. [Download from Releases](https://github.com/psychedelicious/mtg-quick-search/releases/tag/latest).
+Until the extension is on the FF and Chrome web stores, you can install it manually.
 
 ### Firefox
 
-- Download the latest signed Firefox release
-- Click Tools > Add-ons and Themes > gear icon > Install Add-on from File... > select the zip
+- Download the latest signed Firefox build ([direct link](https://github.com/psychedelicious/mtg-quick-search/releases/download/latest/mtg_quick_search-1.0.1-firefox-signed.xpi))
+- In Firefox, click Tools > Add-ons and Themes > gear icon > Install Add-on from File... > select the downloaded file.
 
 ### Chrome
 
-- Download the latest Chrome release
-- Unzip it to its own folder
-- Click Chrome > Preferences > Extensions > enable Developer Mode > Load unpacked > select the unzipped folder
+- Download the latest Chrome build ([direct link](https://github.com/psychedelicious/mtg-quick-search/releases/download/latest/mtg_quick_search-chrome-1.0.1.zip))
+- Unzip it
+- In Chrome, click Chrome > Preferences > Extensions > enable Developer Mode > Load unpacked > select the unzipped folder
+
+Steps should be the same for other Chromium browsers (e.g. Edge, Brave, Ungoogled Chromium
+).
 
 ## Usage
 
