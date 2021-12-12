@@ -2,7 +2,7 @@
 
 Web extension to look up MTG cards. Compatible with FF and Chromium-based browsers (e.g. Chrome, Edge, Brave - but I've only tested on [Ungoogled Chromium](https://github.com/Eloston/ungoogled-chromium)).
 
-![demo](https://github.com/psychedelicious/mtg-quick-search/blob/master/images/example.gif?raw=true)
+![demo](https://github.com/psychedelicious/mtg-quick-search/blob/master/images/demo.gif?raw=true)
 
 Pending publication to the Firefox and Chrome extension stores.
 
