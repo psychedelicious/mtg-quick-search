@@ -10,7 +10,7 @@ Please report any issues here.
 
 ## Installation
 
-Until the extension is on the FF and Chrome web stores, you can install it manually.
+Until the extension is on the FF and Chrome web stores, you can install it manually. [Download from Releases](https://github.com/psychedelicious/mtg-quick-search/releases/tag/latest).
 
 ### Installation - Firefox
 
