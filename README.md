@@ -72,7 +72,7 @@ The signed extension can be installed from file per usual.
 
 ### Chrome
 
-`yarn run build-chrome` outputs a build to `build/firefox/`.
+`yarn run build-chrome` outputs a build to `build/chrome/`.
 
 ## Technical
 
