@@ -2,6 +2,8 @@
 
 Web extension to look up MTG cards. Compatible with FF and Chromium-based browsers (e.g. Chrome, Edge, Brave).
 
+![example](https://github.com/psychedelicious/mtg-quick-search/blob/master/images/example.gif?raw=true)
+
 Pending publication to the Firefox and Chrome extension stores.
 
 Please report any issues here.
