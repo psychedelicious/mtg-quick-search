@@ -1,0 +1,224 @@
+.mtgQuickSearch {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 16px;
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  width: 244px;
+  height: 340px;
+  background-color: rgb(70, 70, 70);
+  user-select: none;
+}
+
+.mtgQuickSearchContainer {
+  position: relative;
+}
+
+.mtgQuickSearchCircleButtonContainer {
+  position: absolute;
+  right: 0.75em;
+  top: 2.4em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+}
+
+.mtgQuickSearchCircleButton {
+  display: block;
+  padding: 5px;
+  border-radius: 1em;
+  height: 1em;
+  width: 1em;
+  line-height: 1em;
+  text-align: center;
+  background-color: rgba(248, 246, 237, 0.75);
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  color: rgb(50, 50, 50);
+  text-decoration: none;
+  box-sizing: content-box;
+
+  &:hover {
+    background-color: rgba(248, 246, 237, 1);
+    text-decoration: none;
+  }
+}
+
+.mtgQuickSearchCircleButtonRed {
+  color: rgb(172, 15, 15);
+  font-weight: 900;
+}
+
+.mtgQuickSearchCardImage {
+  max-width: 100%;
+  height: auto;
+}
+
+.mtgQuickSearchError {
+  padding: 1em;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  border: solid 0.6em rgb(206, 66, 66);
+  color: rgb(235, 232, 217);
+  border-radius: 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+  a {
+    color: rgb(235, 232, 217);
+    text-decoration: underline;
+  }
+}
+
+.mtgQuickSearchErrorLink {
+  margin: 1em;
+  position: relative;
+}
+
+.mtgQuickSearchDrag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: move;
+}
+
+.mtgQuickSearchLoadingContainer {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: solid 0.6em black;
+  background-color: rgb(161, 115, 62);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mtgQuickSearchSpinnerFadingCircle {
+  width: 7em;
+  height: 7em;
+  position: relative;
+  .mtgQuickSearchSpinnerCircle {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    &:before {
+      content: '';
+      display: block;
+      margin: 0 auto;
+      width: 1em;
+      height: 1em;
+      border: solid 2px rgba(0, 0, 0, 0.8);
+      border-radius: 100%;
+      animation: mtgQuickSearchSpinnerCircleFadeDelay 1s infinite ease-in-out
+        both;
+      box-sizing: border-box;
+    }
+  }
+}
+
+.mtgQuickSearchSpinnerCircle1 {
+  &:before {
+    background-color: rgb(255, 253, 243);
+  }
+}
+
+.mtgQuickSearchSpinnerCircle2 {
+  &:before {
+    background-color: rgb(94, 202, 245);
+  }
+}
+.mtgQuickSearchSpinnerCircle3 {
+  &:before {
+    background-color: rgb(44, 44, 44);
+  }
+}
+
+.mtgQuickSearchSpinnerCircle4 {
+  &:before {
+    background-color: rgb(247, 64, 64);
+  }
+}
+.mtgQuickSearchSpinnerCircle5 {
+  &:before {
+    background-color: rgb(137, 211, 108);
+  }
+}
+
+.mtgQuickSearchSpinnerFadingCircle {
+  .mtgQuickSearchSpinnerCircle2 {
+    transform: rotate(72deg);
+  }
+}
+
+.mtgQuickSearchSpinnerFadingCircle {
+  .mtgQuickSearchSpinnerCircle3 {
+    transform: rotate(144deg);
+  }
+}
+
+.mtgQuickSearchSpinnerFadingCircle {
+  .mtgQuickSearchSpinnerCircle4 {
+    transform: rotate(216deg);
+  }
+}
+.mtgQuickSearchSpinnerFadingCircle {
+  .mtgQuickSearchSpinnerCircle5 {
+    transform: rotate(288deg);
+  }
+}
+
+.mtgQuickSearchSpinnerFadingCircle {
+  .mtgQuickSearchSpinnerCircle2 {
+    &:before {
+      animation-delay: -0.8s;
+    }
+  }
+}
+
+.mtgQuickSearchSpinnerFadingCircle {
+  .mtgQuickSearchSpinnerCircle3 {
+    &:before {
+      animation-delay: -0.6s;
+    }
+  }
+}
+
+.mtgQuickSearchSpinnerFadingCircle {
+  .mtgQuickSearchSpinnerCircle4 {
+    &:before {
+      animation-delay: -0.4s;
+    }
+  }
+}
+
+.mtgQuickSearchSpinnerFadingCircle {
+  .mtgQuickSearchSpinnerCircle5 {
+    &:before {
+      animation-delay: -0.2s;
+    }
+  }
+}
+
+@keyframes mtgQuickSearchSpinnerCircleFadeDelay {
+  0%,
+  39%,
+  100% {
+    opacity: 0.5;
+  }
+
+  40% {
+    opacity: 1;
+  }
+}

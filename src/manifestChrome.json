@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+
+  "name": "MTG Quick Search",
+
+  "version": "1.0",
+
+  "description": "Adds context menu item & keyboard shortcut to search Scryfall for MTG cards.",
+
+  "permissions": ["activeTab", "contextMenus", "https://api.scryfall.com/*"],
+
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["mtgQuickSearch.css"],
+      "js": ["browser-polyfill.min.js"]
+    }
+  ],
+
+  "background": {
+    "scripts": ["browser-polyfill.min.js", "background.js"]
+  },
+
+  "commands": {
+    "find-card": {
+      "suggested_key": {
+        "default": "Alt+Shift+S"
+      },
+      "description": "Search Scryfall for selected text"
+    }
+  }
+}
