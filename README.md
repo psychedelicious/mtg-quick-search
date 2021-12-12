@@ -8,31 +8,29 @@ Pending publication to the Firefox and Chrome extension stores.
 
 Please report any issues here.
 
+- [MTG Quick Search](#mtg-quick-search)
+  - [Installation](#installation)
+    - [Firefox](#firefox)
+    - [Chrome](#chrome)
+  - [Usage](#usage)
+  - [Build from source](#build-from-source)
+    - [Firefox - Unsigned](#firefox---unsigned)
+    - [Firefox - Signed](#firefox---signed)
+    - [Chrome](#chrome-1)
+  - [Technical](#technical)
+
 ## Installation
 
 Until the extension is on the FF and Chrome web stores, you can install it manually. [Download from Releases](https://github.com/psychedelicious/mtg-quick-search/releases/tag/latest).
 
-### Installation - Firefox
+### Firefox
 
-**The signed build is pending Mozilla. You will need to install the unsigned version for now.**
-
-When using normal Firefox, you can only install it as a temporary add-on:
-
-- Go to `about:debugging`
-- Click `This Firefox`
-- Click `Load Temporary Add-on...`
-- Select the unsigned zip
-
-When using the Nightly/Developer Firefox builds, you can install it the same way you would install a signed version, after setting `xpinstall.signatures.required` to `false` in `about:config`.
-
-Once the signed version is available:
-
-- Download the latest signed release
+- Download the latest signed Firefox release
 - Click Tools > Add-ons and Themes > gear icon > Install Add-on from File... > select the zip
 
-### Installation - Chrome
+### Chrome
 
-- Download the latest release
+- Download the latest Chrome release
 - Unzip it to its own folder
 - Click Chrome > Preferences > Extensions > enable Developer Mode > Load unpacked > select the unzipped folder
 
@@ -56,15 +54,11 @@ You can open as many cards as you like, move them around, etc - try it out.
 
 ## Build from source
 
-### Build - Firefox
-
-You can build an unsigned version for testing, or a signed (probably don't want to do this though).
-
-#### Build - Firefox - Unsigned
+### Firefox - Unsigned
 
 `yarn run build-ff` outputs an unsigned build to `build/firefox/`.
 
-#### Build - Firefox - Signed
+### Firefox - Signed
 
 You probably don't want to do this - just download the latest signed Firefox release if you want to run the extension on Firefox.
 
@@ -76,7 +70,7 @@ This requires Mozilla Add-on API credentials. The build script expects the JWT i
 
 The signed extension can be installed from file per usual.
 
-### Build - Chrome
+### Chrome
 
 `yarn run build-chrome` outputs a build to `build/firefox/`.
 
