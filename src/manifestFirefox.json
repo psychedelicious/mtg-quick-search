@@ -10,7 +10,9 @@
   "permissions": ["activeTab", "contextMenus", "https://api.scryfall.com/*"],
 
   "icons": {
-    "48": "icons/icon.svg"
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "96": "icon.svg"
   },
 
   "content_scripts": [
