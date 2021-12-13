@@ -44,7 +44,7 @@ Select a card name (or any text) and search for it using:
 - The **MTG Quick Search** right-click menu button
 - Keyboard shortcut `Opt`+`Shift`+`S` (`Alt`+`Shift`+`S` on Windows)
 
-The search only displays a card if there is exactly one match. You can try searching Scryfall if there are no matches, multiple matches, or something else goes awry.
+The extension first searches Scryfall for a single match, displaying it if there is only one. If there are multiple matches, it choose the top result (Scryfall sorts them).
 
 - X => close popup
 - G => open card on Gatherer
