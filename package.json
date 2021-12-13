@@ -18,6 +18,7 @@
     "web-ext": "^6.6.0"
   },
   "scripts": {
+    "clean": "rm -rf build/ && rm -rf dist/",
     "build-chrome": "bin/build-core.sh && bin/build-chrome.sh",
     "build-ff": "bin/build-core.sh && bin/build-ff.sh",
     "build-ff-signed": "bin/build-core.sh && bin/build-ff-signed.sh"
