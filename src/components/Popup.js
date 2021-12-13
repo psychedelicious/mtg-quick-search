@@ -9,40 +9,49 @@ import getMaxZIndex from '../util/getMaxZIndex';
 const Popup = ({ searchTerm, x, y, uuid, parentUuid, z }) => {
   const [requestStatus, setRequestStatus] = useState('pending');
   const [cardJson, setCardJson] = useState({});
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorCode, setErrorCode] = useState('');
   const [zIndex, setZIndex] = useState(z);
 
   const popupUuid = `mtg-quick-search-popup-${uuid}`;
 
   useEffect(() => {
-    fetch(encodeURI(`https://api.scryfall.com/cards/named?fuzzy=${searchTerm}`))
+    let isNamed = false;
+    const searchUri = encodeURI(
+      `https://api.scryfall.com/cards/search?q=${searchTerm}`
+    );
+    const namedUri = encodeURI(
+      `https://api.scryfall.com/cards/named?fuzzy=${searchTerm}`
+    );
+    fetch(searchUri)
       .then((response) => {
-        cachedResponse = response;
-        if (!response.ok && response.status !== 404) {
-          setErrorMessage('unknown');
-          throw Error('unknown');
+        if (response.ok) {
+          return response.json();
+        } else if (response.status == 404) {
+          isNamed = true;
+          return fetch(namedUri).then((response) => {
+            if (!response.ok) {
+              setErrorCode(response.status);
+              throw Error();
+            }
+            return response.json();
+          });
         }
-        return response.json();
+        setErrorCode(response.status);
+        throw Error();
       })
       .then((json) => {
-        if (json.status === 404) {
-          if (json.type === 'ambiguous') {
-            setErrorMessage('ambiguous');
-            throw Error('ambiguous');
-          }
-          setErrorMessage('not_found');
-          throw Error('not_found');
-        }
+        const card = isNamed ? json : json.data[0];
 
-        setCardJson(json);
+        setCardJson(card);
 
         const imageUris = [];
-        if (json.hasOwnProperty('card_faces')) {
-          json.card_faces.forEach((face) => {
+
+        if (card.hasOwnProperty('card_faces')) {
+          card.card_faces.forEach((face) => {
             imageUris.push(face.image_uris.normal);
           });
         } else {
-          imageUris.push(json.image_uris.normal);
+          imageUris.push(card.image_uris.normal);
         }
         return Promise.all(imageUris.map((uri) => preloadImage(uri)));
       })
@@ -107,7 +116,7 @@ const Popup = ({ searchTerm, x, y, uuid, parentUuid, z }) => {
       )}
       {requestStatus === 'error' && (
         <Error
-          errorMessage={errorMessage}
+          code={errorCode}
           searchTerm={searchTerm}
           z={zIndex}
           closePopup={closePopup}
