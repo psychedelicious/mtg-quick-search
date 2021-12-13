@@ -66,6 +66,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  gap: 1em;
   overflow: hidden;
   border: solid 0.6em rgb(206, 66, 66);
   color: rgb(235, 232, 217);
@@ -78,8 +79,11 @@
   }
 }
 
+.mtgQuickSearchErrorSearchTerm {
+  font-style: italic;
+}
+
 .mtgQuickSearchErrorLink {
-  margin: 1em;
   position: relative;
 }
 
