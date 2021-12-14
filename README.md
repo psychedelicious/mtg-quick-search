@@ -90,6 +90,7 @@ Built in React. Uses [Scryfall](https://scryfall.com/)'s generously provided fre
 ### v1.0.3
 
 - Handles rebalanced (Alchemy) cards, allows for toggling between OG and rebalanced versions
+- UI improvements
 
 ### v1.0.2
 
