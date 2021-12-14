@@ -9,10 +9,10 @@ Pending publication to the Firefox and Chrome extension stores.
 Please report any issues here.
 
 - [MTG Quick Search](#mtg-quick-search)
+  - [Usage](#usage)
   - [Installation](#installation)
     - [Firefox](#firefox)
     - [Chrome](#chrome)
-  - [Usage](#usage)
   - [Build from source](#build-from-source)
     - [Firefox - Unsigned](#firefox---unsigned)
     - [Firefox - Signed](#firefox---signed)
@@ -22,6 +22,21 @@ Please report any issues here.
     - [v1.0.3](#v103)
     - [v1.0.2](#v102)
     - [v1.0.1](#v101)
+
+## Usage
+
+Select a card name (or any text) and search for it using:
+
+- The **MTG Quick Search** right-click menu button
+- Keyboard shortcut `Opt`+`Shift`+`S` (`Alt`+`Shift`+`S` on Windows)
+
+Cards that have been rebalanced have a button to see the original versions.
+
+A flip button shows you both sides of double-faced cards.
+
+`Escape` closes the popups one by one.
+
+You can open as many cards as you like, move them around, etc - try it out.
 
 ## Installation
 
@@ -40,24 +55,6 @@ Until the extension is on the FF and Chrome web stores, you can install it manua
 
 Steps should be the same for other Chromium browsers (e.g. Edge, Brave, Ungoogled Chromium
 ).
-
-## Usage
-
-Select a card name (or any text) and search for it using:
-
-- The **MTG Quick Search** right-click menu button
-- Keyboard shortcut `Opt`+`Shift`+`S` (`Alt`+`Shift`+`S` on Windows)
-
-The extension first searches Scryfall for a single match, displaying it if there is only one. If there are multiple matches, it choose the top result (Scryfall sorts them).
-
-- X => close popup
-- G => open card on Gatherer
-- S => open card on Scryfall
-- E => open card on EDHREC
-- ↺ => flip card (if it is double-faced)
-- `Escape` => close popup
-
-You can open as many cards as you like, move them around, etc - try it out.
 
 ## Build from source
 
