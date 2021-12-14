@@ -9,6 +9,9 @@ import getMaxZIndex from '../util/getMaxZIndex';
 const Popup = ({ searchTerm, x, y, uuid, parentUuid, z }) => {
   const [requestStatus, setRequestStatus] = useState('pending');
   const [cardJson, setCardJson] = useState({});
+  const [alternateCardJson, setAlternateCardJson] = useState({});
+  const [hasRebalancedCard, setHasRebalancedCard] = useState(false);
+  const [shouldShowAlternateCard, setShouldShowAlternateCard] = useState(false);
   const [errorCode, setErrorCode] = useState('');
   const [zIndex, setZIndex] = useState(z);
 
@@ -16,6 +19,7 @@ const Popup = ({ searchTerm, x, y, uuid, parentUuid, z }) => {
 
   useEffect(() => {
     let isNamed = false;
+    let card, altCard, altUri;
     const searchUri = encodeURI(
       `https://api.scryfall.com/cards/search?q=${searchTerm}`
     );
@@ -40,10 +44,38 @@ const Popup = ({ searchTerm, x, y, uuid, parentUuid, z }) => {
         throw Error();
       })
       .then((json) => {
-        const card = isNamed ? json : json.data[0];
+        card = isNamed ? json : json.data[0];
 
         setCardJson(card);
 
+        if (card.hasOwnProperty('all_parts')) {
+          // it may be rebalanced
+          let possibleAlternateCardName =
+            card.name.slice(0, 2) === 'A-'
+              ? card.name.slice(2)
+              : `A-${card.name}`;
+          let filtered = card.all_parts.filter(
+            (part) => part.name === possibleAlternateCardName
+          );
+          if (filtered.length === 1) {
+            setHasRebalancedCard(true);
+            altUri = filtered[0].uri;
+            return fetch(altUri)
+              .then((response) => {
+                if (!response.ok) {
+                  setErrorCode(response.status);
+                  throw Error();
+                }
+                return response.json();
+              })
+              .then((json) => {
+                altCard = json;
+                setAlternateCardJson(json);
+              });
+          }
+        }
+      })
+      .then(() => {
         const imageUris = [];
 
         if (card.hasOwnProperty('card_faces')) {
@@ -53,6 +85,17 @@ const Popup = ({ searchTerm, x, y, uuid, parentUuid, z }) => {
         } else {
           imageUris.push(card.image_uris.normal);
         }
+
+        if (altCard) {
+          if (altCard.hasOwnProperty('card_faces')) {
+            altCard.card_faces.forEach((face) => {
+              imageUris.push(face.image_uris.normal);
+            });
+          } else {
+            imageUris.push(altCard.image_uris.normal);
+          }
+        }
+
         return Promise.all(imageUris.map((uri) => preloadImage(uri)));
       })
       .then(() => setRequestStatus('success'))
@@ -63,6 +106,10 @@ const Popup = ({ searchTerm, x, y, uuid, parentUuid, z }) => {
 
   const closePopup = () => {
     document.getElementById(parentUuid).remove();
+  };
+
+  const toggleCard = () => {
+    setShouldShowAlternateCard(!shouldShowAlternateCard);
   };
 
   // https://javascript.info/mouse-drag-and-drop
@@ -111,9 +158,24 @@ const Popup = ({ searchTerm, x, y, uuid, parentUuid, z }) => {
       className={`${classes.mtgQuickSearch} mtg-quick-search-popup`}
       style={{ top: `${y}px`, left: `${x}px`, zIndex: zIndex }}
     >
-      {requestStatus === 'success' && (
-        <Card cardJson={cardJson} closePopup={closePopup} z={zIndex} />
-      )}
+      {requestStatus === 'success' &&
+        (shouldShowAlternateCard && hasRebalancedCard ? (
+          <Card
+            cardJson={alternateCardJson}
+            z={zIndex}
+            closePopup={closePopup}
+            toggleCard={toggleCard}
+            hasRebalancedCard={hasRebalancedCard}
+          />
+        ) : (
+          <Card
+            cardJson={cardJson}
+            z={zIndex}
+            closePopup={closePopup}
+            toggleCard={toggleCard}
+            hasRebalancedCard={hasRebalancedCard}
+          />
+        ))}
       {requestStatus === 'error' && (
         <Error
           code={errorCode}

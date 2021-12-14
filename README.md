@@ -2,7 +2,7 @@
 
 Web extension to look up MTG cards. Compatible with FF and Chromium-based browsers (e.g. Chrome, Edge, Brave - but I've only tested on [Ungoogled Chromium](https://github.com/Eloston/ungoogled-chromium)).
 
-![demo](https://github.com/psychedelicious/mtg-quick-search/blob/master/images/demo.gif?raw=true)
+![demo](https://github.com/psychedelicious/mtg-quick-search/blob/master/assets/demo.gif?raw=true)
 
 Pending publication to the Firefox and Chrome extension stores.
 
@@ -18,6 +18,10 @@ Please report any issues here.
     - [Firefox - Signed](#firefox---signed)
     - [Chrome](#chrome-1)
   - [Technical](#technical)
+  - [Changelog](#changelog)
+    - [v1.0.3](#v103)
+    - [v1.0.2](#v102)
+    - [v1.0.1](#v101)
 
 ## Installation
 
@@ -63,7 +67,7 @@ You can open as many cards as you like, move them around, etc - try it out.
 
 ### Firefox - Signed
 
-You probably don't want to do this - just download the latest signed Firefox release if you want to run the extension on Firefox.
+_You probably don't want to do this - just download the latest signed Firefox release if you want to run the extension on Firefox._
 
 You would do this if you wanted to publish a fork of this extension for some reason - I'd prefer a pull request, though.
 
@@ -80,3 +84,17 @@ The signed extension can be installed from file per usual.
 ## Technical
 
 Built in React. Uses [Scryfall](https://scryfall.com/)'s generously provided free API.
+
+## Changelog
+
+### v1.0.3
+
+- Handles rebalanced (Alchemy) cards, allows for toggling between OG and rebalanced versions
+
+### v1.0.2
+
+- Improved searching: first tries using a normal Scryfall search, if nothing found tries a fuzzy search
+
+### v1.0.1
+
+- Initial release
