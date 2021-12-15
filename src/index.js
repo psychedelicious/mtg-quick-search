@@ -33,6 +33,11 @@ if (searchTerm.length > 0) {
   document.body.appendChild(parent);
   const zIndex = getMaxZIndex() + 2;
 
+  const { innerWidth, innerHeight } = window;
+
+  x = x > innerWidth - 100 ? innerWidth - 100 : x;
+  y = y > innerHeight - 100 ? innerHeight - 100 : y;
+
   ReactDOM.render(
     <Popup
       searchTerm={searchTerm}
