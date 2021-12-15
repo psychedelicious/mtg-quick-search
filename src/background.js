@@ -17,29 +17,25 @@ browser.contextMenus.onClicked.addListener((info) => {
 // handle the shortcut key
 browser.commands.onCommand.addListener((command) => {
   if (command === 'find-card') {
+    // browser.tabs.executeScript({ file: 'browser-polyfill.min.js' });
     browser.tabs.executeScript({
       file: 'mtgQuickSearch.js',
     });
   }
 });
 
-// set default scale if it doesn't exist
-browser.storage.local.get().then((data) => {
-  const _data = {
-    shouldShowGathererIcon:
-      typeof data.shouldShowGathererIcon === 'boolean'
-        ? data.shouldShowGathererIcon
-        : true,
-    shouldShowScryfallIcon:
-      typeof data.shouldShowScryfallIcon === 'boolean'
-        ? data.shouldShowScryfallIcon
-        : true,
-    shouldShowEdhrecIcon:
-      typeof data.shouldShowEdhrecIcon === 'boolean'
-        ? data.shouldShowEdhrecIcon
-        : true,
-  };
+// set default options & clean any bad data
+let temp;
 
-  browser.storage.local.clear();
-  browser.storage.local.set(_data);
-});
+browser.storage.local
+  .get()
+  .then((data) => {
+    temp = data;
+    return browser.storage.local.clear();
+  })
+  .then(() => {
+    return browser.storage.local.set({
+      scale: isNaN(temp.scale) ? 1 : temp.scale,
+      changeScale: false,
+    });
+  });

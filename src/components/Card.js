@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import * as classes from '../styles/styles.module.scss';
 import AlchemyIcon from './icons/AlchemyIcon';
 import CloseIcon from './icons/CloseIcon';
@@ -9,17 +9,6 @@ import ScryfallIcon from './icons/ScryfallIcon';
 
 const Card = ({ cardJson, closePopup, z, toggleCard, hasRebalancedCard }) => {
   const [shouldShowBack, setShouldShowBack] = useState(false);
-  const [shouldShowGathererIcon, setShouldShowGathererIcon] = useState(true);
-  const [shouldShowScryfallIcon, setShouldShowScryfallIcon] = useState(true);
-  const [shouldShowEdhrecIcon, setShouldShowEdhrecIcon] = useState(true);
-
-  useEffect(() => {
-    browser.storage.local.get((data) => {
-      setShouldShowGathererIcon(data.shouldShowGathererIcon);
-      setShouldShowScryfallIcon(data.shouldShowScryfallIcon);
-      setShouldShowEdhrecIcon(data.shouldShowEdhrecIcon);
-    });
-  }, []);
 
   let frontImageUri, backImageUri;
 
@@ -70,7 +59,7 @@ const Card = ({ cardJson, closePopup, z, toggleCard, hasRebalancedCard }) => {
             <FlipIcon />
           </div>
         )}
-        {cardJson.related_uris.gatherer && shouldShowGathererIcon && (
+        {cardJson.related_uris.gatherer && (
           <a href={cardJson.related_uris.gatherer} target="_blank">
             <div
               className={classes.mtgQuickSearchCircleButton}
@@ -80,7 +69,7 @@ const Card = ({ cardJson, closePopup, z, toggleCard, hasRebalancedCard }) => {
             </div>
           </a>
         )}
-        {cardJson.scryfall_uri && shouldShowScryfallIcon && (
+        {cardJson.scryfall_uri && (
           <a href={cardJson.scryfall_uri} target="_blank">
             <div
               className={classes.mtgQuickSearchCircleButton}
@@ -90,7 +79,7 @@ const Card = ({ cardJson, closePopup, z, toggleCard, hasRebalancedCard }) => {
             </div>
           </a>
         )}
-        {cardJson.related_uris.edhrec && shouldShowEdhrecIcon && (
+        {cardJson.related_uris.edhrec && (
           <a href={cardJson.related_uris.edhrec} target="_blank">
             <div
               className={classes.mtgQuickSearchCircleButton}

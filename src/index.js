@@ -3,6 +3,7 @@ import Popup from './components/Popup';
 import { v4 as uuidv4 } from 'uuid';
 import getMaxZIndex from './util/getMaxZIndex';
 import getSelection from './util/getSelection';
+var browser = require('webextension-polyfill');
 
 let { text: searchTerm, x, y } = getSelection();
 
@@ -38,15 +39,20 @@ if (searchTerm.length > 0) {
   x = x > innerWidth - 100 ? innerWidth - 100 : x;
   y = y > innerHeight - 100 ? innerHeight - 100 : y;
 
-  ReactDOM.render(
-    <Popup
-      searchTerm={searchTerm}
-      x={x}
-      y={y}
-      uuid={uuid}
-      parentUuid={parentUuid}
-      z={zIndex}
-    />,
-    parent
-  );
+  browser.storage.local
+    .get('scale')
+    .then((data) =>
+      ReactDOM.render(
+        <Popup
+          searchTerm={searchTerm}
+          x={x}
+          y={y}
+          uuid={uuid}
+          parentUuid={parentUuid}
+          z={zIndex}
+          scale={data.scale}
+        />,
+        parent
+      )
+    );
 }

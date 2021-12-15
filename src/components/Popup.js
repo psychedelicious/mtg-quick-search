@@ -15,6 +15,7 @@ const Popup = ({
   z,
   width = 244,
   height = 340,
+  scale,
 }) => {
   const [requestStatus, setRequestStatus] = useState('pending');
   const [cardJson, setCardJson] = useState({});
@@ -23,8 +24,16 @@ const Popup = ({
   const [shouldShowAlternateCard, setShouldShowAlternateCard] = useState(false);
   const [errorCode, setErrorCode] = useState('');
   const [zIndex, setZIndex] = useState(z);
+  const [shouldShowChangeScaleButton, setShouldShowChangeScaleButton] =
+    useState(false);
 
   const popupUuid = `mtg-quick-search-popup-${uuid}`;
+
+  useEffect(() => {
+    browser.storage.local.get('changeScale').then((data) => {
+      setShouldShowChangeScaleButton(data.changeScale);
+    });
+  }, []);
 
   useEffect(() => {
     let isNamed = false;
@@ -198,6 +207,18 @@ const Popup = ({
 
   const handleDragStart = () => false;
 
+  const handleChangeScale = (e) => {
+    e.stopPropagation();
+    const popup = document.getElementById(popupUuid);
+    const newScale =
+      Math.round(
+        (100 * popup.getBoundingClientRect().width) / popup.offsetWidth
+      ) / 100;
+    browser.storage.local
+      .set({ scale: newScale, changeScale: false })
+      .then(() => setShouldShowChangeScaleButton(false));
+  };
+
   return (
     <div
       id={popupUuid}
@@ -206,7 +227,7 @@ const Popup = ({
         top: `${y}px`,
         left: `${x}px`,
         zIndex: zIndex,
-        transform: 'scale(1)',
+        transform: `scale(${scale})`,
         transformOrigin: 'top left',
         width: `${width}px`,
         height: `${height}px`,
@@ -247,7 +268,21 @@ const Popup = ({
         onMouseDown={handleMouseDown}
         onDragStart={handleDragStart}
         onClick={(e) => e.stopPropagation()}
-      ></div>
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        {shouldShowChangeScaleButton && (
+          <div
+            onClick={handleChangeScale}
+            className={classes.mtgQuickSearchChangeScaleButton}
+          >
+            Set as default size
+          </div>
+        )}
+      </div>
 
       <div
         className={classes.mtgQuickSearchResize}

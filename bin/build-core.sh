@@ -19,6 +19,10 @@ cp node_modules/webextension-polyfill/dist/browser-polyfill.js.map dist/browser-
 # copy background script
 cp src/background.js dist/background.js
 
+# copy options page
+cp src/options.html dist/options.html
+cp src/options.js dist/options.js
+
 # wrap code in an IIFE (required to prevent redeclaration of variables)
 printf '(() => {' | cat - dist/mtgQuickSearch.js >temp
 mv temp dist/mtgQuickSearch.js
