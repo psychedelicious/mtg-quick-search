@@ -58,6 +58,8 @@ Steps should be the same for other Chromium browsers (e.g. Edge, Brave, Ungoogle
 
 ## Build from source
 
+The build scripts are bash scripts - I suppose they won't work on Windows.
+
 ### Firefox - Unsigned
 
 `yarn run build-ff` outputs an unsigned build to `build/firefox/`.
