@@ -6,7 +6,16 @@ import Error from './Error';
 import * as classes from '../styles/styles.module.scss';
 import getMaxZIndex from '../util/getMaxZIndex';
 
-const Popup = ({ searchTerm, x, y, uuid, parentUuid, z }) => {
+const Popup = ({
+  searchTerm,
+  x,
+  y,
+  uuid,
+  parentUuid,
+  z,
+  width = 244,
+  height = 340,
+}) => {
   const [requestStatus, setRequestStatus] = useState('pending');
   const [cardJson, setCardJson] = useState({});
   const [alternateCardJson, setAlternateCardJson] = useState({});
@@ -122,8 +131,8 @@ const Popup = ({ searchTerm, x, y, uuid, parentUuid, z }) => {
       }
       const popupElement = document.getElementById(popupUuid);
 
-      let shiftX = e.clientX - popupElement.getBoundingClientRect().left;
-      let shiftY = e.clientY - popupElement.getBoundingClientRect().top;
+      const shiftX = e.clientX - popupElement.getBoundingClientRect().left;
+      const shiftY = e.clientY - popupElement.getBoundingClientRect().top;
 
       moveAt(e.clientX, e.clientY);
 
@@ -150,13 +159,58 @@ const Popup = ({ searchTerm, x, y, uuid, parentUuid, z }) => {
     }
   };
 
+  // https://javascript.info/mouse-drag-and-drop
+  const handleResize = (e) => {
+    if (e.buttons === 1) {
+      e.stopPropagation();
+
+      if (zIndex <= getMaxZIndex() - 2) {
+        setZIndex(getMaxZIndex() + 2);
+      }
+
+      const popupElement = document.getElementById(popupUuid);
+
+      const shiftX = e.clientX - popupElement.getBoundingClientRect().right;
+      const shiftY = e.clientY - popupElement.getBoundingClientRect().bottom;
+
+      const onMouseMove = (e) => {
+        const _width =
+          e.clientX - popupElement.getBoundingClientRect().left - shiftX;
+        const _height =
+          e.clientY - popupElement.getBoundingClientRect().top - shiftY;
+
+        // I don't understand this but it constrains the dimensions
+        const _ratio = Math.min(_width / width, _height / height);
+        popupElement.style.transform = `scale(${Math.max(_ratio, 0.25)})`;
+      };
+
+      // move the popupElement on mousemove
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener(
+        'mouseup',
+        () => {
+          document.removeEventListener('mousemove', onMouseMove);
+        },
+        { once: true }
+      );
+    }
+  };
+
   const handleDragStart = () => false;
 
   return (
     <div
       id={popupUuid}
       className={`${classes.mtgQuickSearch} mtg-quick-search-popup`}
-      style={{ top: `${y}px`, left: `${x}px`, zIndex: zIndex }}
+      style={{
+        top: `${y}px`,
+        left: `${x}px`,
+        zIndex: zIndex,
+        transform: 'scale(1)',
+        transformOrigin: 'top left',
+        width: `${width}px`,
+        height: `${height}px`,
+      }}
     >
       {requestStatus === 'success' &&
         (shouldShowAlternateCard && hasRebalancedCard ? (
@@ -176,6 +230,7 @@ const Popup = ({ searchTerm, x, y, uuid, parentUuid, z }) => {
             hasRebalancedCard={hasRebalancedCard}
           />
         ))}
+
       {requestStatus === 'error' && (
         <Error
           code={errorCode}
@@ -184,10 +239,19 @@ const Popup = ({ searchTerm, x, y, uuid, parentUuid, z }) => {
           closePopup={closePopup}
         />
       )}
+
       {requestStatus === 'pending' && <Loading />}
+
       <div
         className={classes.mtgQuickSearchDrag}
         onMouseDown={handleMouseDown}
+        onDragStart={handleDragStart}
+        onClick={(e) => e.stopPropagation()}
+      ></div>
+
+      <div
+        className={classes.mtgQuickSearchResize}
+        onMouseDown={handleResize}
         onDragStart={handleDragStart}
         onClick={(e) => e.stopPropagation()}
       ></div>
