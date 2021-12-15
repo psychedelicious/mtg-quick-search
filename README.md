@@ -29,6 +29,7 @@ Please report any issues here.
 - Select a card name (or any text) and search for it using:
   - **MTG Quick Search** in the right-click menu
   - `Opt`+`Shift`+`S` (`Alt`+`Shift`+`S` on Windows)
+- Links to Gatherer, Scryfall and EDHREC
 - Double-faced cards get a flip button to see both sides
 - Rebalanced cards get an Alchemy button to see both versions
 - `Escape` closes the popups one by one (starting with the one on top)
