@@ -9,7 +9,7 @@ Pending publication to the Firefox and Chrome extension stores.
 Please report any issues here.
 
 - [MTG Quick Search](#mtg-quick-search)
-  - [Usage](#usage)
+  - [Features](#features)
   - [Installation](#installation)
     - [Firefox](#firefox)
     - [Chrome](#chrome)
@@ -19,22 +19,21 @@ Please report any issues here.
     - [Chrome](#chrome-1)
   - [Technical](#technical)
   - [Changelog](#changelog)
+    - [v1.0.4](#v104)
     - [v1.0.3](#v103)
     - [v1.0.2](#v102)
     - [v1.0.1](#v101)
 
-## Usage
+## Features
 
-Select a card name (or any text) and search for it using:
-
-- The **MTG Quick Search** right-click menu button
-- Keyboard shortcut `Opt`+`Shift`+`S` (`Alt`+`Shift`+`S` on Windows)
-
-Cards that have been rebalanced have a button to see the original versions.
-
-A flip button shows you both sides of double-faced cards.
-
-`Escape` closes the popups one by one.
+- Select a card name (or any text) and search for it using:
+  - **MTG Quick Search** in the right-click menu
+  - `Opt`+`Shift`+`S` (`Alt`+`Shift`+`S` on Windows)
+- Double-faced cards get a flip button to see both sides
+- Rebalanced cards get an Alchemy button to see both versions
+- `Escape` closes the popups one by one (starting with the one on top)
+- Drag from the bottom right corner to resize the card popup
+  - Check the extension preferences in the browser to change the default size
 
 You can open as many cards as you like, move them around, etc - try it out.
 
@@ -44,12 +43,12 @@ Until the extension is on the FF and Chrome web stores, you can install it manua
 
 ### Firefox
 
-- Download the latest signed Firefox build ([direct link](https://github.com/psychedelicious/mtg-quick-search/releases/download/v1.0.3/mtg_quick_search-1.0.3-firefox-signed.xpi))
+- Download the latest signed Firefox build ([direct link](https://github.com/psychedelicious/mtg-quick-search/releases/download/v1.0.4/mtg_quick_search-1.0.4-firefox-signed.xpi))
 - In Firefox, click Tools > Add-ons and Themes > gear icon > Install Add-on from File... > select the downloaded file.
 
 ### Chrome
 
-- Download the latest Chrome build ([direct link](https://github.com/psychedelicious/mtg-quick-search/releases/download/v1.0.3/mtg_quick_search-1.0.3-chrome.zip))
+- Download the latest Chrome build ([direct link](https://github.com/psychedelicious/mtg-quick-search/releases/download/v1.0.4/mtg_quick_search-1.0.4-chrome.zip))
 - Unzip it
 - In Chrome, click Chrome > Preferences > Extensions > enable Developer Mode > Load unpacked > select the unzipped folder
 
@@ -83,6 +82,10 @@ The signed extension can be installed from file per usual.
 Built in React. Uses [Scryfall](https://scryfall.com/)'s generously provided free API.
 
 ## Changelog
+
+### v1.0.4
+
+- Cards can now be resized, and default size can be set in the extension's preferences
 
 ### v1.0.3
 
