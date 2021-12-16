@@ -4,9 +4,9 @@
 # does some re-arranging so it works as a web extension,
 # and builds and optionally signs the extension.
 
-# clean and bundle with parcel, no minification
+# clean and bundle with parcel
 rm -rf dist/
-parcel build src/index.html --no-optimize
+parcel build src/index.html --no-source-maps
 
 # rename built js and css bundles
 mv dist/index.*.js dist/mtgQuickSearch.js
@@ -14,10 +14,12 @@ mv dist/index.*.css dist/mtgQuickSearch.css
 
 # copy webextension-polyfill
 cp node_modules/webextension-polyfill/dist/browser-polyfill.js dist/browser-polyfill.js
-cp node_modules/webextension-polyfill/dist/browser-polyfill.js.map dist/browser-polyfill.js.map
 
-# copy background script
+# copy background scripts
 cp src/background.js dist/background.js
+
+# copy content scripts
+cp src/add-listeners.js dist/add-listeners.js
 
 # copy options page
 cp src/options.html dist/options.html
