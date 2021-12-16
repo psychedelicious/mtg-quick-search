@@ -23,8 +23,8 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["browser-polyfill.js"],
-      "css": ["mtgQuickSearch.css"]
+      "css": ["mtgQuickSearch.css"],
+      "js": ["browser-polyfill.js", "add-listeners.js"]
     }
   ],
 

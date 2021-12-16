@@ -1,3 +1,9 @@
+/*
+ * assets/close_icon.svg
+ *
+ * from material ui icons
+ */
+
 const CloseIcon = ({ width = '1em', height = '1em', fill = 'black' }) => {
   return (
     <div style={{ width: width, height: height, fill: fill }}>

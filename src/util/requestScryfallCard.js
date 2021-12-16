@@ -13,6 +13,8 @@
   finally, we use a trick to preload all the images.
 */
 
+import preloadImage from './preloadImage';
+
 const requestScryfallCard = async (searchTerm) => {
   let json = null;
   let hasRebalanced = false;
@@ -106,16 +108,7 @@ const requestScryfallCard = async (searchTerm) => {
   });
 
   // preload all of the images
-  await Promise.all(
-    imageUris.map((uri) => {
-      return new Promise((resolve, reject) => {
-        let img = new Image();
-        img.onload = () => resolve();
-        img.onerror = reject;
-        img.src = encodeURI(uri);
-      });
-    })
-  );
+  await Promise.all(imageUris.map((uri) => preloadImage(uri)));
 
   return { cardJson, altCardJson, hasRebalanced };
 };

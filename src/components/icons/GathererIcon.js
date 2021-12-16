@@ -1,3 +1,4 @@
+// assets/gatherer_icon.svg
 const GathererIcon = ({ width = '1em', height = '1em', fill = 'black' }) => {
   return (
     <div style={{ width: width, height: height, fill: fill }}>

@@ -1,10 +1,13 @@
 import * as classes from '../styles/styles.module.scss';
 
+// simple error component, just shows the err message and link to scryfall
 const Error = ({ message, searchTerm, z, closePopup }) => {
+  // create url for scryfall search
   const scryfallUrl = encodeURI(
     `https://scryfall.com/search?q=${searchTerm}&unique=cards&as=grid&order=name`
   );
 
+  // trim search term to 100 chars so we don't have to deal with overflow
   const trimmedSearchTerm =
     searchTerm.length > 100 ? searchTerm.substr(0, 100) + '...' : searchTerm;
 

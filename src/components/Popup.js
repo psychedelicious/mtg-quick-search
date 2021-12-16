@@ -5,7 +5,13 @@ import Error from './Error';
 import * as classes from '../styles/styles.module.scss';
 import getMaxZIndex from '../util/getMaxZIndex';
 import requestScryfallCard from '../util/requestScryfallCard';
-
+import movePopup from '../util/movePopup';
+import resizePopup from '../util/resizePopup';
+/*
+ * The main component for the card popup
+ *
+ * fetches card data, displays it, handles movement, etc
+ */
 const Popup = ({
   searchTerm,
   x,
@@ -17,6 +23,7 @@ const Popup = ({
   height = 340,
   scale,
 }) => {
+  // used values: 'pending', 'error', 'success', can js do enums?
   const [requestStatus, setRequestStatus] = useState('pending');
   const [cardJson, setCardJson] = useState({});
   const [alternateCardJson, setAlternateCardJson] = useState({});
@@ -27,15 +34,18 @@ const Popup = ({
   const [shouldShowChangeScaleButton, setShouldShowChangeScaleButton] =
     useState(false);
 
+  // unique popup css id (not parent!)
   const popupUuid = `mtg-quick-search-popup-${uuid}`;
 
   useEffect(() => {
+    // check if the user has asked to set a default popup scale
     browser.storage.local.get('changeScale').then((data) => {
       setShouldShowChangeScaleButton(data.changeScale);
     });
   }, []);
 
   useEffect(() => {
+    // fetch the card from scryfall & set state
     requestScryfallCard(searchTerm)
       .then(({ cardJson, altCardJson, hasRebalanced }) => {
         setCardJson(cardJson);
@@ -49,98 +59,67 @@ const Popup = ({
       });
   }, []);
 
+  // totally remove the unique parent element
   const closePopup = () => {
     document.getElementById(parentUuid).remove();
   };
 
+  // toggles if we should show the alternate (i.e. rebalanced) card
   const toggleCard = () => {
     setShouldShowAlternateCard(!shouldShowAlternateCard);
   };
 
-  // https://javascript.info/mouse-drag-and-drop
-  const handleMouseDown = (e) => {
+  // moves the popup
+  const handleMoveMouseDown = (e) => {
     if (e.buttons === 1) {
       e.stopPropagation();
 
-      if (zIndex <= getMaxZIndex() - 2) {
-        setZIndex(getMaxZIndex() + 2);
-      }
-      const popupElement = document.getElementById(popupUuid);
-
-      const shiftX = e.clientX - popupElement.getBoundingClientRect().left;
-      const shiftY = e.clientY - popupElement.getBoundingClientRect().top;
-
-      moveAt(e.clientX, e.clientY);
-
-      // moves the popupElement at (pageX, pageY) coordinates
-      // taking initial shifts into account
-      function moveAt(pageX, pageY) {
-        popupElement.style.left = pageX - shiftX + 'px';
-        popupElement.style.top = pageY - shiftY + 'px';
-      }
-
-      function onMouseMove(e) {
-        moveAt(e.clientX, e.clientY);
-      }
-
-      // move the popupElement on mousemove
-      document.addEventListener('mousemove', onMouseMove);
-      document.addEventListener(
-        'mouseup',
-        () => {
-          document.removeEventListener('mousemove', onMouseMove);
-        },
-        { once: true }
-      );
-    }
-  };
-
-  // https://javascript.info/mouse-drag-and-drop
-  const handleResize = (e) => {
-    if (e.buttons === 1) {
-      e.stopPropagation();
-
+      // shift the popup to the top of the popups if it isn't already there
       if (zIndex <= getMaxZIndex() - 2) {
         setZIndex(getMaxZIndex() + 2);
       }
 
-      const popupElement = document.getElementById(popupUuid);
-
-      const shiftX = e.clientX - popupElement.getBoundingClientRect().right;
-      const shiftY = e.clientY - popupElement.getBoundingClientRect().bottom;
-
-      const onMouseMove = (e) => {
-        const _width =
-          e.clientX - popupElement.getBoundingClientRect().left - shiftX;
-        const _height =
-          e.clientY - popupElement.getBoundingClientRect().top - shiftY;
-
-        // I don't understand this but it constrains the dimensions
-        const _ratio = Math.min(_width / width, _height / height);
-        popupElement.style.transform = `scale(${Math.max(_ratio, 0.25)})`;
-      };
-
-      // move the popupElement on mousemove
-      document.addEventListener('mousemove', onMouseMove);
-      document.addEventListener(
-        'mouseup',
-        () => {
-          document.removeEventListener('mousemove', onMouseMove);
-        },
-        { once: true }
-      );
+      // handle moving the popup around
+      movePopup({ initialX: e.clientX, initialY: e.clientY, popupUuid });
     }
   };
 
+  // resizes the popup
+  const handleResizeMouseDown = (e) => {
+    if (e.buttons === 1) {
+      e.stopPropagation();
+
+      // move the popup to the top of the popups if it isn't already there
+      if (zIndex <= getMaxZIndex() - 2) {
+        setZIndex(getMaxZIndex() + 2);
+      }
+
+      // handle resizing the popup
+      resizePopup({
+        initialX: e.clientX,
+        initialY: e.clientY,
+        width,
+        height,
+        popupUuid,
+      });
+    }
+  };
+
+  // trick to stop any drag interactions so our manual implementation works
   const handleDragStart = () => false;
 
+  // stores new default scale factor in local storage
   const handleChangeScale = (e) => {
     e.stopPropagation();
     const popup = document.getElementById(popupUuid);
+
+    // easiest to compute the current scale from dimensions
     const newScale =
       Math.round(
         (100 * popup.getBoundingClientRect().width) / popup.offsetWidth
       ) / 100;
+
+    // store the new value and update state
     browser.storage.local
       .set({ scale: newScale, changeScale: false })
       .then(() => setShouldShowChangeScaleButton(false));
@@ -192,7 +171,7 @@ const Popup = ({
 
       <div
         className={classes.mtgQuickSearchDrag}
-        onMouseDown={handleMouseDown}
+        onMouseDown={handleMoveMouseDown}
         onDragStart={handleDragStart}
         onClick={(e) => e.stopPropagation()}
         style={{
@@ -213,7 +192,7 @@ const Popup = ({
 
       <div
         className={classes.mtgQuickSearchResize}
-        onMouseDown={handleResize}
+        onMouseDown={handleResizeMouseDown}
         onDragStart={handleDragStart}
         onClick={(e) => e.stopPropagation()}
       ></div>

@@ -7,19 +7,23 @@ import FlipIcon from './icons/FlipIcon';
 import GathererIcon from './icons/GathererIcon';
 import ScryfallIcon from './icons/ScryfallIcon';
 
+// Card component shows card images and flip, ext site links, alchemy buttons
 const Card = ({ cardJson, closePopup, z, toggleCard, hasRebalancedCard }) => {
   const [shouldShowBack, setShouldShowBack] = useState(false);
 
   let frontImageUri, backImageUri;
 
+  // only double faced cards have the 'card_faces' prop
   const isDoubleFaced = cardJson.hasOwnProperty('card_faces');
 
+  // only rebalanced cards start with 'A-'
   const isRebalanced = cardJson.name.slice(0, 2) === 'A-' ? true : false;
 
   const flipCard = () => {
     setShouldShowBack(!shouldShowBack);
   };
 
+  // double faced cards have image uris in the 'card_faces' prop
   if (isDoubleFaced) {
     frontImageUri = cardJson.card_faces[0].image_uris.normal;
     backImageUri = cardJson.card_faces[1].image_uris.normal;

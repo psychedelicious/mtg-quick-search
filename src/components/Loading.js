@@ -1,5 +1,6 @@
 import * as classes from '../styles/styles.module.scss';
 
+// simple loading screen, faux-mtg color pie
 const Loading = () => {
   return (
     <div className={classes.mtgQuickSearchLoadingContainer}>

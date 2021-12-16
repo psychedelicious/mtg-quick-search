@@ -1,8 +1,13 @@
+// get the max z-index among the card popups
 const getMaxZIndex = () => {
   const popups = Array.from(
     document.querySelectorAll('.mtg-quick-search-popup')
   );
 
+  /*
+   * default z-index is 999, this feels like a reasonable value to almost
+   * always have the popup on top
+   */
   if (popups.length === 0) {
     return 999;
   }

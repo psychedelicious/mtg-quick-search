@@ -24,7 +24,7 @@
     {
       "matches": ["<all_urls>"],
       "css": ["mtgQuickSearch.css"],
-      "js": ["browser-polyfill.js"]
+      "js": ["browser-polyfill.js", "add-listeners.js"]
     }
   ],
 

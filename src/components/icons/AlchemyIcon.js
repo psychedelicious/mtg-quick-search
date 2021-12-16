@@ -1,5 +1,8 @@
-// from the keyrune project https://keyrune.andrewgioia.com/
-
+/*
+ * assets/arena_icon.svg
+ *
+ * from the keyrune project https://keyrune.andrewgioia.com/
+ */
 const AlchemyIcon = ({ width = '1em', height = '1em', fill = 'black' }) => {
   return (
     <div style={{ width: width, height: height, fill: fill }}>
