@@ -19,6 +19,7 @@ Please report any issues here.
     - [Chrome](#chrome-1)
   - [Technical](#technical)
   - [Changelog](#changelog)
+    - [v1.0.6](#v106)
     - [v1.0.5](#v105)
     - [v1.0.4](#v104)
     - [v1.0.3](#v103)
@@ -45,12 +46,12 @@ Until the extension is on the FF and Chrome web stores, you can install it manua
 
 ### Firefox
 
-- Download the latest signed Firefox build ([direct link](https://github.com/psychedelicious/mtg-quick-search/releases/download/v1.0.5/mtg_quick_search-1.0.5-firefox-signed.xpi))
+- Download the latest signed Firefox build ([direct link](https://github.com/psychedelicious/mtg-quick-search/releases/download/v1.0.6/mtg_quick_search-1.0.6-firefox-signed.xpi))
 - In Firefox, click Tools > Add-ons and Themes > gear icon > Install Add-on from File... > select the downloaded file.
 
 ### Chrome
 
-- Download the latest Chrome build ([direct link](https://github.com/psychedelicious/mtg-quick-search/releases/download/v1.0.5/mtg_quick_search-1.0.5-chrome.zip))
+- Download the latest Chrome build ([direct link](https://github.com/psychedelicious/mtg-quick-search/releases/download/v1.0.6/mtg_quick_search-1.0.6-chrome.zip))
 - Unzip it
 - In Chrome, click Chrome > Preferences > Extensions > enable Developer Mode > Load unpacked > select the unzipped folder
 
@@ -86,6 +87,10 @@ The signed extension can be installed from file per usual.
 Built in React. Uses [Scryfall](https://scryfall.com/)'s generously provided free API.
 
 ## Changelog
+
+### v1.0.6
+
+- Fixes bug with CSS inheritance
 
 ### v1.0.5
 
