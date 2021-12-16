@@ -37,7 +37,7 @@ $button-color-error: rgb(172, 15, 15);
 
 .mtgQuickSearchCircleButton {
   display: block;
-  padding: 5px !important;
+  padding: 5px;
   border-radius: 1em;
   height: 1em;
   width: 1em;
@@ -74,7 +74,7 @@ $button-color-error: rgb(172, 15, 15);
 }
 
 .mtgQuickSearchError {
-  padding: 1em !important;
+  padding: 1em;
   width: 100%;
   height: 100%;
   display: flex;
@@ -121,7 +121,7 @@ $button-color-error: rgb(172, 15, 15);
 }
 
 .mtgQuickSearchChangeScaleButton {
-  padding: 5px !important;
+  padding: 5px;
   border-radius: 5px;
   text-align: center;
   background-color: $button-background;
@@ -163,7 +163,7 @@ $button-color-error: rgb(172, 15, 15);
     &:before {
       content: '';
       display: block;
-      margin: 0 auto !important;
+      margin: 0 auto;
       width: 1em;
       height: 1em;
       border: solid 2px rgba(0, 0, 0, 0.8);
