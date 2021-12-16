@@ -1,6 +1,6 @@
 import * as classes from '../styles/styles.module.scss';
 
-const Error = ({ code, searchTerm, z, closePopup }) => {
+const Error = ({ message, searchTerm, z, closePopup }) => {
   const scryfallUrl = encodeURI(
     `https://scryfall.com/search?q=${searchTerm}&unique=cards&as=grid&order=name`
   );
@@ -8,12 +8,10 @@ const Error = ({ code, searchTerm, z, closePopup }) => {
   const trimmedSearchTerm =
     searchTerm.length > 100 ? searchTerm.substr(0, 100) + '...' : searchTerm;
 
-  const message =
-    code === 404 ? 'No confident match for:' : 'Unknown error for:';
-
   return (
     <div className={classes.mtgQuickSearchError}>
-      <div>{message}</div>
+      <div>{`Error: ${message}`}</div>
+      <div>Searched for:</div>
       <div className={classes.mtgQuickSearchErrorSearchTerm}>
         {trimmedSearchTerm}
       </div>
