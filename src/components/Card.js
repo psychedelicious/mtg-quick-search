@@ -59,16 +59,6 @@ const Card = ({ cardJson, closePopup, z, toggleCard, hasRebalancedCard }) => {
             <FlipIcon />
           </div>
         )}
-        {cardJson.related_uris.gatherer && (
-          <a href={cardJson.related_uris.gatherer} target="_blank">
-            <div
-              className={classes.mtgQuickSearchCircleButton}
-              title="Open on Gatherer"
-            >
-              <GathererIcon />
-            </div>
-          </a>
-        )}
         {cardJson.scryfall_uri && (
           <a href={cardJson.scryfall_uri} target="_blank">
             <div
@@ -86,6 +76,16 @@ const Card = ({ cardJson, closePopup, z, toggleCard, hasRebalancedCard }) => {
               title="Open on EDHREC"
             >
               <EdhrecIcon />
+            </div>
+          </a>
+        )}
+        {cardJson.related_uris.gatherer && (
+          <a href={cardJson.related_uris.gatherer} target="_blank">
+            <div
+              className={classes.mtgQuickSearchCircleButton}
+              title="Open on Gatherer"
+            >
+              <GathererIcon />
             </div>
           </a>
         )}
