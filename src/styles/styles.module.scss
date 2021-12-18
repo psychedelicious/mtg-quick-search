@@ -2,8 +2,8 @@ $button-background: rgba(255, 252, 241, 0.9);
 $button-background-hover: rgba(255, 252, 241, 1);
 $button-color: rgb(63, 63, 63);
 $button-color-hover: rgb(0, 0, 0);
-
 $button-color-error: rgb(172, 15, 15);
+$shadow: 5px 5px 26px -7px rgba(0, 0, 0, 0.92);
 
 .base {
   font-family: Arial, Helvetica, sans-serif;
@@ -23,6 +23,7 @@ $button-color-error: rgb(172, 15, 15);
     padding: 0;
     margin: 0;
   }
+  box-shadow: $shadow;
 }
 
 .cardContainer {
@@ -188,4 +189,5 @@ $button-color-error: rgb(172, 15, 15);
       gap: 1em;
     }
   }
+  box-shadow: $shadow;
 }

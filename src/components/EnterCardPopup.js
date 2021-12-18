@@ -19,7 +19,7 @@ const EnterCardPopup = () => {
     <div className={`${classes.base} ${classes.enterCardPopup}`}>
       <form onSubmit={handleSubmit}>
         <label>
-          MTG Quick Search:
+          <span>MTG Quick Search:</span>
           <input
             autoFocus
             type="text"
