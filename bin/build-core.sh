@@ -8,6 +8,10 @@
 rm -rf dist/
 parcel build src/index.html --no-source-maps
 
+# the following renaming could be avoided by using a parcel Namer plugin,
+# for example, `parcel-namer-rewrite`, or a simple custom package.
+# for now, I will just script it.
+
 # rename built js and css bundles
 mv dist/index.*.js dist/mtgQuickSearch.js
 mv dist/index.*.css dist/mtgQuickSearch.css
