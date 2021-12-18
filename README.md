@@ -1,6 +1,6 @@
 # MTG Quick Search
 
-Web extension to look up MTG cards. Compatible with FF and Chromium-based browsers (e.g. Chrome, Edge, Brave - but I've only tested on [Ungoogled Chromium](https://github.com/Eloston/ungoogled-chromium)).
+Unofficial **Magic: The Gathering** browser extension to look up MTG cards. Compatible with FF and Chromium-based browsers (e.g. Chrome, Edge, Brave - but I've only tested on [Ungoogled Chromium](https://github.com/Eloston/ungoogled-chromium)).
 
 ![demo](https://github.com/psychedelicious/mtg-quick-search/blob/master/assets/demo.gif?raw=true)
 
@@ -17,7 +17,7 @@ Please report any issues here.
     - [Firefox - Unsigned](#firefox---unsigned)
     - [Firefox - Signed](#firefox---signed)
     - [Chrome](#chrome-1)
-  - [Technical](#technical)
+  - [Thanks](#thanks)
   - [Changelog](#changelog)
     - [v1.0.6](#v106)
     - [v1.0.5](#v105)
@@ -82,9 +82,11 @@ The signed extension can be installed from file per usual.
 
 `yarn run build-chrome` outputs a build to `build/chrome/`.
 
-## Technical
+## Thanks
 
-Built in React. Uses [Scryfall](https://scryfall.com/)'s generously provided free API.
+Uses [Scryfall](https://scryfall.com/)'s generously provided free API.
+
+Thanks to Wizards of the Coast's kind [fan content policy](https://company.wizards.com/en/legal/fancontentpolicy) for allowing me to use the Magic card back image.
 
 ## Changelog
 
