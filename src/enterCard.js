@@ -3,7 +3,7 @@ import EnterCardPopup from './components/EnterCardPopup';
 
 const enterCard = () => {
   // there should only ever be one of these
-  const parentId = 'mtgQuickSearchEnterCard';
+  const parentId = 'mtgQuickSearchEnterCardPopup';
 
   if (document.getElementById(parentId)) {
     return false;

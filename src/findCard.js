@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-import Popup from './components/Popup';
+import CardPopup from './components/CardPopup';
 import { v4 as uuidv4 } from 'uuid';
 import getMaxZIndex from './util/getMaxZIndex';
 
@@ -61,7 +61,7 @@ const findCard = ({ searchTerm, x, y }) => {
     browser.storage.local.get('scale').then((data) =>
       // render the popup in the unique parent element
       ReactDOM.render(
-        <Popup
+        <CardPopup
           searchTerm={searchTerm}
           x={x}
           y={y}

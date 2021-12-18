@@ -9,7 +9,7 @@ document.addEventListener('keydown', (e) => {
     document.querySelectorAll('.mtg-quick-search-popup')
   );
 
-  const enterCardPopup = document.getElementById('mtgQuickSearchEnterCard');
+  const enterCardPopup = document.getElementById('mtgQuickSearchEnterCardPopup');
 
   if (e.key === 'Escape') {
     if (enterCardPopup) {

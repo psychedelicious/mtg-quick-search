@@ -12,7 +12,7 @@ const EnterCardPopup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     findCard({ searchTerm, x: 0, y: 0 });
-    document.getElementById('mtgQuickSearchEnterCard').remove();
+    document.getElementById('mtgQuickSearchEnterCardPopup').remove();
   };
 
   return (

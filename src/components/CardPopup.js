@@ -14,7 +14,7 @@ import status from 'http-status';
  *
  * fetches card data, displays it, handles movement, etc
  */
-const Popup = ({
+const CardPopup = ({
   searchTerm,
   x,
   y,
@@ -202,4 +202,4 @@ const Popup = ({
   );
 };
 
-export default Popup;
+export default CardPopup;
