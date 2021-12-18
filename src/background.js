@@ -17,7 +17,6 @@ browser.contextMenus.onClicked.addListener((info) => {
 // handle the shortcut key
 browser.commands.onCommand.addListener((command) => {
   if (command === 'find-card') {
-    // browser.tabs.executeScript({ file: 'browser-polyfill.min.js' });
     browser.tabs.executeScript({
       file: 'mtgQuickSearch.js',
     });
