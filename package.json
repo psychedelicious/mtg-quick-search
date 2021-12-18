@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "license": "MIT",
   "dependencies": {
+    "http-status": "^1.5.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "uuid": "^8.3.2",

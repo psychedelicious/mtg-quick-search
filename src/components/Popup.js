@@ -7,6 +7,8 @@ import getMaxZIndex from '../util/getMaxZIndex';
 import requestScryfallCard from '../util/requestScryfallCard';
 import movePopup from '../util/movePopup';
 import resizePopup from '../util/resizePopup';
+import status from 'http-status';
+
 /*
  * The main component for the card popup
  *
@@ -160,7 +162,7 @@ const Popup = ({
 
       {requestStatus === 'error' && (
         <Error
-          message={error.message}
+          message={status[error.message]}
           searchTerm={searchTerm}
           z={zIndex}
           closePopup={closePopup}

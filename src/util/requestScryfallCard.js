@@ -38,12 +38,12 @@ const requestScryfallCard = async (searchTerm) => {
     if (searchResponse.status === 404) {
       const namedResponse = await fetch(namedUri);
       if (!namedResponse.ok) {
-        throw new Error(namedResponse.statusText);
+        throw new Error(namedResponse.status);
       } else {
         json = await namedResponse.json();
       }
     } else {
-      throw new Error(searchResponse.statusText);
+      throw new Error(searchResponse.status);
     }
   } else {
     json = await searchResponse.json();
@@ -84,7 +84,7 @@ const requestScryfallCard = async (searchTerm) => {
       hasRebalanced = true;
       const altResponse = await fetch(filtered[0].uri);
       if (!altResponse.ok) {
-        throw new Error(altResponse.statusText);
+        throw new Error(altResponse.status);
       } else {
         altCardJson = await altResponse.json();
       }
