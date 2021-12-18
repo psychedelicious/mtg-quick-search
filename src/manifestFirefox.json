@@ -38,6 +38,12 @@
         "default": "Alt+Shift+S"
       },
       "description": "Search Scryfall for selected text"
+    },
+    "enter-card": {
+      "suggested_key": {
+        "default": "Alt+Shift+E"
+      },
+      "description": "Opens textbox to type a card name to search for"
     }
   },
 

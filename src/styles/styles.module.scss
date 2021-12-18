@@ -170,3 +170,12 @@ $button-color-error: rgb(172, 15, 15);
     transform: translateX(200%);
   }
 }
+
+.enterCardPopup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  width: 100%;
+  padding: 1em;
+}
