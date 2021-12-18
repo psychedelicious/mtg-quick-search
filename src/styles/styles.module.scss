@@ -176,6 +176,16 @@ $button-color-error: rgb(172, 15, 15);
   top: 0;
   left: 0;
   z-index: 99999;
-  width: 100%;
+  margin: 1em;
   padding: 1em;
+  background-color: rgb(63, 63, 63);
+  color: rgb(255, 255, 255);
+  border-radius: 8px;
+  form {
+    label {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+    }
+  }
 }
