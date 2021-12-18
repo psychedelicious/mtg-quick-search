@@ -128,7 +128,7 @@ const Popup = ({
   return (
     <div
       id={popupUuid}
-      className={`${classes.mtgQuickSearch} mtg-quick-search-popup`}
+      className={`${classes.base} ${classes.cardPopup} mtg-quick-search-popup`}
       style={{
         top: `${y}px`,
         left: `${x}px`,
@@ -170,7 +170,7 @@ const Popup = ({
       {requestStatus === 'pending' && <Loading />}
 
       <div
-        className={classes.mtgQuickSearchDrag}
+        className={classes.drag}
         onMouseDown={handleMoveMouseDown}
         onDragStart={handleDragStart}
         onClick={(e) => e.stopPropagation()}
@@ -183,7 +183,7 @@ const Popup = ({
         {shouldShowChangeScaleButton && (
           <div
             onClick={handleChangeScale}
-            className={classes.mtgQuickSearchChangeScaleButton}
+            className={classes.changeScaleButton}
           >
             Set as default size
           </div>
@@ -191,7 +191,7 @@ const Popup = ({
       </div>
 
       <div
-        className={classes.mtgQuickSearchResize}
+        className={classes.resize}
         onMouseDown={handleResizeMouseDown}
         onDragStart={handleDragStart}
         onClick={(e) => e.stopPropagation()}

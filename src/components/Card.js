@@ -33,13 +33,10 @@ const Card = ({ cardJson, closePopup, z, toggleCard, hasRebalancedCard }) => {
   }
 
   return (
-    <div className={classes.mtgQuickSearchContainer}>
-      <div
-        className={classes.mtgQuickSearchCircleButtonContainer}
-        style={{ zIndex: z + 1 }}
-      >
+    <div className={classes.cardContainer}>
+      <div className={classes.cardButtonContainer} style={{ zIndex: z + 1 }}>
         <div
-          className={classes.mtgQuickSearchCircleButton}
+          className={classes.circleButton}
           title="Close popup (escape)"
           onClick={closePopup}
         >
@@ -48,7 +45,7 @@ const Card = ({ cardJson, closePopup, z, toggleCard, hasRebalancedCard }) => {
         {hasRebalancedCard && (
           <div
             title={isRebalanced ? 'Show original' : 'Show rebalanced'}
-            className={classes.mtgQuickSearchCircleButton}
+            className={classes.circleButton}
             onClick={toggleCard}
           >
             <AlchemyIcon fill="black" />
@@ -57,7 +54,7 @@ const Card = ({ cardJson, closePopup, z, toggleCard, hasRebalancedCard }) => {
         {isDoubleFaced && (
           <div
             title={!shouldShowBack ? 'Show back' : 'Show front'}
-            className={classes.mtgQuickSearchCircleButton}
+            className={classes.circleButton}
             onClick={flipCard}
           >
             <FlipIcon />
@@ -65,30 +62,21 @@ const Card = ({ cardJson, closePopup, z, toggleCard, hasRebalancedCard }) => {
         )}
         {cardJson.scryfall_uri && (
           <a href={cardJson.scryfall_uri} target="_blank">
-            <div
-              className={classes.mtgQuickSearchCircleButton}
-              title="Open on Scryfall"
-            >
+            <div className={classes.circleButton} title="Open on Scryfall">
               <ScryfallIcon />
             </div>
           </a>
         )}
         {cardJson.related_uris.edhrec && (
           <a href={cardJson.related_uris.edhrec} target="_blank">
-            <div
-              className={classes.mtgQuickSearchCircleButton}
-              title="Open on EDHREC"
-            >
+            <div className={classes.circleButton} title="Open on EDHREC">
               <EdhrecIcon />
             </div>
           </a>
         )}
         {cardJson.related_uris.gatherer && (
           <a href={cardJson.related_uris.gatherer} target="_blank">
-            <div
-              className={classes.mtgQuickSearchCircleButton}
-              title="Open on Gatherer"
-            >
+            <div className={classes.circleButton} title="Open on Gatherer">
               <GathererIcon />
             </div>
           </a>
@@ -97,16 +85,13 @@ const Card = ({ cardJson, closePopup, z, toggleCard, hasRebalancedCard }) => {
 
       {!shouldShowBack && (
         <div>
-          <img
-            className={classes.mtgQuickSearchCardImage}
-            src={frontImageUri}
-          />
+          <img className={classes.cardImage} src={frontImageUri} />
         </div>
       )}
 
       {shouldShowBack && (
         <div>
-          <img className={classes.mtgQuickSearchCardImage} src={backImageUri} />
+          <img className={classes.cardImage} src={backImageUri} />
         </div>
       )}
     </div>

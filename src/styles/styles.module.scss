@@ -5,10 +5,13 @@ $button-color-hover: rgb(0, 0, 0);
 
 $button-color-error: rgb(172, 15, 15);
 
-.mtgQuickSearch {
+.base {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   line-height: 16px;
+}
+
+.cardPopup {
   position: fixed;
   padding: 0;
   margin: 0;
@@ -22,11 +25,11 @@ $button-color-error: rgb(172, 15, 15);
   }
 }
 
-.mtgQuickSearchContainer {
+.cardContainer {
   position: relative;
 }
 
-.mtgQuickSearchCircleButtonContainer {
+.cardButtonContainer {
   position: absolute;
   right: 0.75em;
   top: 2.4em;
@@ -35,7 +38,7 @@ $button-color-error: rgb(172, 15, 15);
   gap: 0.3em;
 }
 
-.mtgQuickSearchCircleButton {
+.circleButton {
   display: block;
   padding: 5px;
   border-radius: 1em;
@@ -63,17 +66,17 @@ $button-color-error: rgb(172, 15, 15);
   }
 }
 
-.mtgQuickSearchCircleButtonRed {
+.circleButtonRed {
   color: $button-color-error;
   font-weight: 900;
 }
 
-.mtgQuickSearchCardImage {
+.cardImage {
   max-width: 100%;
   height: auto;
 }
 
-.mtgQuickSearchError {
+.errorContainer {
   padding: 1em;
   width: 100%;
   height: 100%;
@@ -94,15 +97,15 @@ $button-color-error: rgb(172, 15, 15);
   }
 }
 
-.mtgQuickSearchErrorSearchTerm {
+.errorSearchTerm {
   font-style: italic;
 }
 
-.mtgQuickSearchErrorLink {
+.errorLink {
   position: relative;
 }
 
-.mtgQuickSearchDrag {
+.drag {
   position: absolute;
   top: 0;
   left: 0;
@@ -111,7 +114,7 @@ $button-color-error: rgb(172, 15, 15);
   cursor: move;
 }
 
-.mtgQuickSearchResize {
+.resize {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -120,7 +123,7 @@ $button-color-error: rgb(172, 15, 15);
   cursor: se-resize;
 }
 
-.mtgQuickSearchChangeScaleButton {
+.changeScaleButton {
   padding: 5px;
   border-radius: 5px;
   text-align: center;
@@ -139,7 +142,7 @@ $button-color-error: rgb(172, 15, 15);
   }
 }
 
-.mtgQuickSearchLoadingImageDiv {
+.loadingImageDiv {
   position: relative;
   :after {
     content: '';
