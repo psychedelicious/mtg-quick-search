@@ -178,15 +178,17 @@ $shadow: 5px 5px 26px -7px rgba(0, 0, 0, 0.92);
   left: 0;
   z-index: 99999;
   margin: 1em;
-  padding: 1em;
-  background-color: rgb(63, 63, 63);
-  color: rgb(255, 255, 255);
+  padding: 0.75em;
+  color: $button-color;
+  background-color: $button-background;
   border-radius: 8px;
   form {
-    label {
-      display: flex;
-      align-items: center;
-      gap: 1em;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    input[type='text'] {
+      background-color: rgba(0, 0, 0, 0.1);
+      padding: 4px;
     }
   }
   box-shadow: $shadow;
