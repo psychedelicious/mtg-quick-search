@@ -40,7 +40,7 @@ const Card = ({ cardJson, closePopup, z, toggleCard, hasRebalancedCard }) => {
           title="Close popup (escape)"
           onClick={closePopup}
         >
-          <CloseIcon fill="rgb(141, 19, 19)" />
+          <CloseIcon />
         </div>
         {hasRebalancedCard && (
           <div

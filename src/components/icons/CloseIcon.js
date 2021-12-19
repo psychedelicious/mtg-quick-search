@@ -4,7 +4,11 @@
  * from material ui icons
  */
 
-const CloseIcon = ({ width = '1em', height = '1em', fill = 'black' }) => {
+const CloseIcon = ({
+  width = '1em',
+  height = '1em',
+  fill = 'rgb(141, 19, 19)',
+}) => {
   return (
     <div style={{ width: width, height: height, fill: fill }}>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill={fill}>
