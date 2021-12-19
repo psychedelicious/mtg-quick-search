@@ -1,4 +1,5 @@
 import * as classes from '../styles/styles.module.scss';
+import MtgCardBack from './misc/MtgCardBack';
 
 // simple error component, just shows the err message and link to scryfall
 const Error = ({ message, searchTerm, z, closePopup }) => {
@@ -12,6 +13,7 @@ const Error = ({ message, searchTerm, z, closePopup }) => {
     searchTerm.length > 100 ? searchTerm.substr(0, 100) + '...' : searchTerm;
 
   return (
+    <div>
       <div className={classes.errorContainer}>
         <div className={classes.errorMessage}>{`${message}:`}</div>
         <div
@@ -32,6 +34,8 @@ const Error = ({ message, searchTerm, z, closePopup }) => {
         >
           ✕
         </div>
+      </div>
+      <MtgCardBack />
     </div>
   );
 };
