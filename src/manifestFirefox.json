@@ -15,9 +15,9 @@
   ],
 
   "icons": {
-    "16": "icon16.png",
-    "48": "icon48.png",
-    "96": "icon.svg"
+    "16": "icon16x16.png",
+    "48": "icon48x48.png",
+    "96": "icon96x96.png"
   },
 
   "content_scripts": [
