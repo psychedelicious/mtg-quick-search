@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import findCard from '../findCard';
 import * as classes from '../styles/styles.module.scss';
-import MtgQuickSearchIcon from './icons/MtgQuickSearchIcon';
+import MtgQuickSearchIcon from './encoded_images/MtgQuickSearchIcon';
 
 const EnterCardPopup = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -19,13 +19,15 @@ const EnterCardPopup = () => {
   return (
     <div className={`${classes.base} ${classes.enterCardPopup}`}>
       <form onSubmit={handleSubmit}>
-        <MtgQuickSearchIcon width="2em" height="2em" />
-        <input
-          autoFocus
-          type="text"
-          value={searchTerm}
-          onChange={handleChange}
-        />
+        <label className={classes.enterCardFormLabel}>
+          <MtgQuickSearchIcon />
+          <input
+            autoFocus
+            type="text"
+            value={searchTerm}
+            onChange={handleChange}
+          />
+        </label>
       </form>
     </div>
   );

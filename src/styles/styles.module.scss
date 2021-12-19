@@ -187,19 +187,28 @@ $shadow: 5px 5px 26px -7px rgba(0, 0, 0, 0.92);
   top: 0;
   left: 0;
   z-index: 99999;
-  margin: 1em;
+  margin: 2em;
   padding: 0.75em;
   color: $button-color;
-  background-color: $button-background;
+  background-color: white;
   border-radius: 8px;
-  form {
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-    input[type='text'] {
-      background-color: rgba(0, 0, 0, 0.1);
-      padding: 4px;
-    }
-  }
   box-shadow: $shadow;
+  display: flex;
+  gap: 0.75em;
+}
+
+.enterCardFormLabel {
+  display: flex;
+  gap: 0.75em;
+  input[type='text'] {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 3px;
+    box-sizing: border-box;
+    height: 32px;
+    padding: 6px;
+  }
+  div {
+    padding: 0;
+  }
 }
