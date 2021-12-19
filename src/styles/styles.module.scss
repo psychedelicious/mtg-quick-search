@@ -78,7 +78,8 @@ $shadow: 5px 5px 26px -7px rgba(0, 0, 0, 0.92);
 }
 
 .errorContainer {
-  padding: 1em;
+  position: absolute;
+  padding: 2em;
   width: 100%;
   height: 100%;
   display: flex;
@@ -87,15 +88,24 @@ $shadow: 5px 5px 26px -7px rgba(0, 0, 0, 0.92);
   flex-direction: column;
   gap: 1em;
   overflow: hidden;
-  border: solid 0.6em rgb(206, 66, 66);
+  background-color: rgba(0, 0, 0, 0.6);
   color: rgb(235, 232, 217);
   border-radius: 0.5em;
   box-sizing: border-box;
   text-align: center;
   a {
     color: rgb(235, 232, 217);
+    font-weight: bold;
     text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
   }
+}
+
+.errorMessage {
+  color: rgb(255, 19, 19);
+  font-weight: bold;
 }
 
 .errorSearchTerm {

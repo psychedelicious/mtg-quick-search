@@ -12,25 +12,26 @@ const Error = ({ message, searchTerm, z, closePopup }) => {
     searchTerm.length > 100 ? searchTerm.substr(0, 100) + '...' : searchTerm;
 
   return (
-    <div className={classes.errorContainer}>
-      <div>{`Error: ${message}`}</div>
-      <div>Searched for:</div>
-      <div className={classes.errorSearchTerm}>{trimmedSearchTerm}</div>
-      <div>
-        <div className={classes.errorLink} style={{ zIndex: z + 1 }}>
-          <a href={scryfallUrl} target="_blank">
-            Search on Scryfall
-          </a>
+      <div className={classes.errorContainer}>
+        <div className={classes.errorMessage}>{`${message}:`}</div>
+        <div
+          className={classes.errorSearchTerm}
+        >{`"${trimmedSearchTerm}"`}</div>
+        <div>
+          <div className={classes.errorLink} style={{ zIndex: z + 1 }}>
+            <a href={scryfallUrl} target="_blank">
+              Search on Scryfall
+            </a>
+          </div>
         </div>
-      </div>
-      <div
-        className={`${classes.circleButton} ${classes.circleButtonRed}`}
-        title="Close popup (escape)"
-        style={{ zIndex: z + 1 }}
-        onClick={closePopup}
-      >
-        ✕
-      </div>
+        <div
+          className={`${classes.circleButton} ${classes.circleButtonRed}`}
+          title="Close popup (escape)"
+          style={{ zIndex: z + 1 }}
+          onClick={closePopup}
+        >
+          ✕
+        </div>
     </div>
   );
 };

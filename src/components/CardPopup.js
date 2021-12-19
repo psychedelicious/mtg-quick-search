@@ -56,7 +56,11 @@ const CardPopup = ({
         setRequestStatus('success');
       })
       .catch((error) => {
-        setError(error);
+        setError(
+          error.message.includes('NetworkError')
+            ? 'Network Problem'
+            : status[error.message]
+        );
         setRequestStatus('error');
       });
   }, []);
@@ -162,7 +166,7 @@ const CardPopup = ({
 
       {requestStatus === 'error' && (
         <Error
-          message={status[error.message]}
+          message={error}
           searchTerm={searchTerm}
           z={zIndex}
           closePopup={closePopup}
