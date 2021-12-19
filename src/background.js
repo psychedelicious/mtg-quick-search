@@ -9,7 +9,7 @@ browser.contextMenus.create({
 browser.contextMenus.onClicked.addListener((info) => {
   if (info.menuItemId === 'mtg-quick-search') {
     browser.tabs.executeScript({
-      file: 'mtgQuickSearch.js',
+      file: 'mtgQuickSearchFindCard.js',
     });
   }
 });
