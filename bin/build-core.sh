@@ -12,7 +12,7 @@ parcel build src/mtgQuickSearchFindCard.js src/mtgQuickSearchEnterCard.js --no-s
 mv dist/mtgQuickSearchFindCard.css dist/mtgQuickSearch.css
 
 # copy webextension-polyfill
-cp node_modules/webextension-polyfill/dist/browser-polyfill.js dist/browser-polyfill.js
+cp node_modules/webextension-polyfill/dist/browser-polyfill.min.js dist/browser-polyfill.min.js
 
 # copy background scripts
 cp src/background.js dist/background.js
