@@ -16,11 +16,11 @@ browser.contextMenus.onClicked.addListener((info) => {
 
 // handle the keyboard shortcuts
 browser.commands.onCommand.addListener((command) => {
-  if (command === 'find-card') {
+  if (command === 'mtg-quick-search-find-card') {
     browser.tabs.executeScript({
       file: 'mtgQuickSearchFindCard.js',
     });
-  } else if (command === 'enter-card') {
+  } else if (command === 'mtg-quick-search-enter-card') {
     browser.tabs.executeScript({
       file: 'mtgQuickSearchEnterCard.js',
     });

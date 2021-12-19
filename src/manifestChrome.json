@@ -37,13 +37,13 @@
   },
 
   "commands": {
-    "find-card": {
+    "mtg-quick-search-find-card": {
       "suggested_key": {
         "default": "Alt+Shift+S"
       },
       "description": "Search Scryfall for selected text"
     },
-    "enter-card": {
+    "mtg-quick-search-enter-card": {
       "suggested_key": {
         "default": "Alt+Shift+E"
       },
