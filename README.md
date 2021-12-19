@@ -19,6 +19,7 @@ Please report any issues here.
     - [Chrome](#chrome-1)
   - [Thanks](#thanks)
   - [Changelog](#changelog)
+    - [v1.0.7](#v107)
     - [v1.0.6](#v106)
     - [v1.0.5](#v105)
     - [v1.0.4](#v104)
@@ -37,6 +38,7 @@ Please report any issues here.
 - `Escape` closes the popups one by one (starting with the one on top)
 - Drag from the bottom right corner to resize the card popup
   - Check the extension preferences in the browser to change the default size
+- Open a small popup to type in a card name to search for with `Opt`+`Shift`+`E` (`Alt`+`Shift`+`E` on Windows), `Enter` to search, and `Escape` to close
 
 You can open as many cards as you like, move them around, etc - try it out.
 
@@ -89,6 +91,12 @@ Uses [Scryfall](https://scryfall.com/)'s generously provided free API.
 Thanks to Wizards of the Coast's kind [fan content policy](https://company.wizards.com/en/legal/fancontentpolicy) for allowing me to use the Magic card back image.
 
 ## Changelog
+
+### v1.0.7
+
+- Adds free-text search popup
+- UI continues to get prettier
+- Internal housekeeping
 
 ### v1.0.6
 
