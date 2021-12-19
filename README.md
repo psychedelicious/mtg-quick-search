@@ -48,12 +48,12 @@ Until the extension is on the FF and Chrome web stores, you can install it manua
 
 ### Firefox
 
-- Download the latest signed Firefox build ([direct link](https://github.com/psychedelicious/mtg-quick-search/releases/download/v1.0.6/mtg_quick_search-1.0.6-firefox-signed.xpi))
+- Download the latest signed Firefox build ([direct link](https://github.com/psychedelicious/mtg-quick-search/releases/download/v1.0.7/mtg_quick_search-1.0.7-firefox-signed.xpi))
 - In Firefox, click Tools > Add-ons and Themes > gear icon > Install Add-on from File... > select the downloaded file.
 
 ### Chrome
 
-- Download the latest Chrome build ([direct link](https://github.com/psychedelicious/mtg-quick-search/releases/download/v1.0.6/mtg_quick_search-1.0.6-chrome.zip))
+- Download the latest Chrome build ([direct link](https://github.com/psychedelicious/mtg-quick-search/releases/download/v1.0.7/mtg_quick_search-1.0.7-chrome.zip))
 - Unzip it
 - In Chrome, click Chrome > Preferences > Extensions > enable Developer Mode > Load unpacked > select the unzipped folder
 
