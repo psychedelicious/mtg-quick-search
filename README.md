@@ -19,6 +19,7 @@ Please report any issues here.
     - [Chrome](#chrome-1)
   - [Thanks](#thanks)
   - [Changelog](#changelog)
+    - [v1.0.8](#v108)
     - [v1.0.7](#v107)
     - [v1.0.6](#v106)
     - [v1.0.5](#v105)
@@ -48,12 +49,12 @@ Until the extension is on the FF and Chrome web stores, you can install it manua
 
 ### Firefox
 
-- Download the latest signed Firefox build ([direct link](https://github.com/psychedelicious/mtg-quick-search/releases/download/v1.0.7/mtg_quick_search-1.0.7-firefox-signed.xpi))
+- Download the latest signed Firefox build ([direct link](https://github.com/psychedelicious/mtg-quick-search/releases/download/v1.0.8/mtg_quick_search-1.0.8-firefox-signed.xpi))
 - In Firefox, click Tools > Add-ons and Themes > gear icon > Install Add-on from File... > select the downloaded file.
 
 ### Chrome
 
-- Download the latest Chrome build ([direct link](https://github.com/psychedelicious/mtg-quick-search/releases/download/v1.0.7/mtg_quick_search-1.0.7-chrome.zip))
+- Download the latest Chrome build ([direct link](https://github.com/psychedelicious/mtg-quick-search/releases/download/v1.0.8/mtg_quick_search-1.0.8-chrome.zip))
 - Unzip it
 - In Chrome, click Chrome > Preferences > Extensions > enable Developer Mode > Load unpacked > select the unzipped folder
 
@@ -91,6 +92,10 @@ Uses [Scryfall](https://scryfall.com/)'s generously provided free API.
 Thanks to Wizards of the Coast's kind [fan content policy](https://company.wizards.com/en/legal/fancontentpolicy) for allowing me to use the Magic card back image.
 
 ## Changelog
+
+### v1.0.8
+
+- Bug fix
 
 ### v1.0.7
 
