@@ -1,5 +1,5 @@
 import * as classes from '../styles/styles.module.scss';
-import MtgCardBack from './misc/MtgCardBack';
+import MtgCardBack from './encoded_images/MtgCardBack';
 
 // simple error component, just shows the err message and link to scryfall
 const Error = ({ message, searchTerm, z, closePopup }) => {
