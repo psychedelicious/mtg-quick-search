@@ -1,32 +1,34 @@
 # MTG Quick Search
 
-Unofficial **Magic: The Gathering** browser extension to look up MTG cards. Compatible with FF and Chromium-based browsers (e.g. Chrome, Edge, Brave - but I've only tested on [Ungoogled Chromium](https://github.com/Eloston/ungoogled-chromium)).
+Unofficial **Magic: The Gathering** browser extension to look up MTG cards.
+
+Available for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/mtg-quick-search/) and [Chrome](https://chrome.google.com/webstore/detail/mtg-quick-search/gdnekehcblnkoaocmkdmpgphjnffigco).
 
 ![demo](https://github.com/psychedelicious/mtg-quick-search/blob/master/assets/demo.gif?raw=true)
 
-Pending publication to the Firefox and Chrome extension stores (approval takes time). Manual installation is pretty easy for now, though - see [Installation](#installation).
-
 Please report any issues here.
 
-- [MTG Quick Search](#mtg-quick-search)
-  - [Features](#features)
-  - [Installation](#installation)
-    - [Firefox](#firefox)
-    - [Chrome](#chrome)
-  - [Build from source](#build-from-source)
-    - [Firefox - Unsigned](#firefox---unsigned)
-    - [Firefox - Signed](#firefox---signed)
-    - [Chrome](#chrome-1)
-  - [Thanks](#thanks)
-  - [Changelog](#changelog)
-    - [v1.0.8](#v108)
-    - [v1.0.7](#v107)
-    - [v1.0.6](#v106)
-    - [v1.0.5](#v105)
-    - [v1.0.4](#v104)
-    - [v1.0.3](#v103)
-    - [v1.0.2](#v102)
-    - [v1.0.1](#v101)
+<!-- MarkdownTOC -->
+
+- [Features](#features)
+- [Installation](#installation)
+  - [Manual Installation](#manual-installation)
+- [Build from source](#build-from-source)
+  - [Firefox - Unsigned](#firefox---unsigned)
+  - [Firefox - Signed](#firefox---signed)
+  - [Chrome](#chrome)
+- [Thanks](#thanks)
+- [Changelog](#changelog)
+  - [v1.0.8](#v108)
+  - [v1.0.7](#v107)
+  - [v1.0.6](#v106)
+  - [v1.0.5](#v105)
+  - [v1.0.4](#v104)
+  - [v1.0.3](#v103)
+  - [v1.0.2](#v102)
+  - [v1.0.1](#v101)
+
+<!-- /MarkdownTOC -->
 
 ## Features
 
@@ -45,25 +47,15 @@ You can open as many cards as you like, move them around, etc - try it out.
 
 ## Installation
 
-Until the extension is on the FF and Chrome web stores, you can install it manually.
+Available on the [Firefox](https://addons.mozilla.org/en-US/firefox/addon/mtg-quick-search/) and [Chrome](https://chrome.google.com/webstore/detail/mtg-quick-search/gdnekehcblnkoaocmkdmpgphjnffigco) web stores.
 
-### Firefox
+### Manual Installation
 
-- Download the latest signed Firefox build ([direct link](https://github.com/psychedelicious/mtg-quick-search/releases/download/v1.0.8/mtg_quick_search-1.0.8-firefox-signed.xpi))
-- In Firefox, click Tools > Add-ons and Themes > gear icon > Install Add-on from File... > select the downloaded file.
-
-### Chrome
-
-- Download the latest Chrome build ([direct link](https://github.com/psychedelicious/mtg-quick-search/releases/download/v1.0.8/mtg_quick_search-1.0.8-chrome.zip))
-- Unzip it
-- In Chrome, click Chrome > Preferences > Extensions > enable Developer Mode > Load unpacked > select the unzipped folder
-
-Steps should be the same for other Chromium browsers (e.g. Edge, Brave, Ungoogled Chromium
-).
+You can download the [latest signed Firefox build](https://github.com/psychedelicious/mtg-quick-search/releases/download/v1.0.8/mtg_quick_search-1.0.8-firefox-signed.xpi) or [latest Chrome build](https://github.com/psychedelicious/mtg-quick-search/releases/download/v1.0.8/mtg_quick_search-1.0.8-chrome.zip) and install manually in either browser.
 
 ## Build from source
 
-The build scripts are bash scripts - I suppose they won't work on Windows.
+The build scripts are bash scripts.
 
 ### Firefox - Unsigned
 
